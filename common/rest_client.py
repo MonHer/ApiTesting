@@ -11,7 +11,12 @@ import requests
 
 
 class RestClient(object):
+    @staticmethod
+    def client_json(url, method, headers, json, **kwargs):
+        client = requests.request(url=url, method=method, headers=headers, json=json, **kwargs)
+        return client
 
-    def client(self, url, method, headers, json, **kwargs):
-        self.client = requests.request(url=url, method=method, headers=headers, json=json, **kwargs)
-        return self.client.json()
+    @staticmethod
+    def client_data(url, method, headers, data, **kwargs):
+        client = requests.request(url=url, method=method, headers=headers, data=data, **kwargs)
+        return client
