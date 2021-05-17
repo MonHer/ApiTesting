@@ -10,7 +10,7 @@
 import json
 import yaml
 from pathlib import Path
-from common.Logger import logger
+from common.logger import logger
 from configparser import ConfigParser
 
 
@@ -60,14 +60,3 @@ class ReadFileData(object):
         data = dict(config._sections)
         logger.info("读到数据 ==>>  {} ".format(data))
         return data
-
-
-def main():
-    yaml_path = "config/service.yaml"
-    json_path = "data/json/merlot/queryContractSignCheckInfo.json"
-    print(ReadFileData.load_yaml(yaml_path))
-    print(ReadFileData.load_json(json_path))
-
-
-if __name__ == '__main__':
-    main()

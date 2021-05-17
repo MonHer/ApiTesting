@@ -8,15 +8,18 @@
 """
 
 import requests
+from common.logger import logger
 
 
 class RestClient(object):
     @staticmethod
     def client_json(url, method, headers, json, **kwargs):
         client = requests.request(url=url, method=method, headers=headers, json=json, **kwargs)
+        logger.info(client.json())
         return client
 
     @staticmethod
     def client_data(url, method, headers, data, **kwargs):
         client = requests.request(url=url, method=method, headers=headers, data=data, **kwargs)
+        logger.info(client.json())
         return client
